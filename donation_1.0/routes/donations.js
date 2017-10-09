@@ -10,7 +10,7 @@ router.findAll = function(req, res) {
 router.findOne = function(req,res) {
     var donation = getByValue(donations,req.params.id);
 
-    if(donation != null)
+    if(donation !== null)
         res.json(donation);
     else
         res.json({message: 'Donation NOT Found!'});
@@ -23,7 +23,7 @@ router.addDonation = function(req, res) {
     var currentSize = donations.length;
     donations.push({"id":id,"paymenttype":req.body.paymenttype,"amount":req.body.amount,"upvotes":0});
 
-    if((currentSize + 1) == donations.length)
+    if((currentSize + 1) === donations.length)
         res.json({ message: 'Donation Added!'});
     else
         res.json({ message: 'Donation NOT Added!'});
@@ -42,7 +42,7 @@ router.deleteDonation = function(req, res){
   var currentSize = donations.length;
   donations.splice(index, 1);
 
-  if((currentSize - 1) == donations.length)
+  if((currentSize - 1) === donations.length)
       res.json({message:'Donation Deleted!'});
   else
       res.json({message:'Donation Not Deleted!'});
@@ -51,7 +51,7 @@ router.deleteDonation = function(req, res){
 
 function getByValue(arr, id) {
 
-    var result = arr.filter(function(o){return o.id == id;});
+    var result = arr.filter(function(o){return o.id === id;});
     return result ? result[0] : null;
 }
 
