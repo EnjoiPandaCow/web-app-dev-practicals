@@ -65,7 +65,7 @@ router.incrementUpvotes = function(req, res) {
             });
         }
     });
-}
+};
 
 router.deleteDonation = function(req, res) {
 
@@ -76,14 +76,5 @@ router.deleteDonation = function(req, res) {
             res.json({ message: 'Donation Deleted!'});
     });
 };
-
-
-function getByValue(arr, id) {
-
-    var result = arr.filter(function (o) {
-        return o.id === id;
-    });
-    return result ? result[0] : null;
-}
 
 module.exports = router;
